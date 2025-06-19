@@ -8,7 +8,10 @@
 # /mod/foobar/
 #
 # See gitignore(5) man page for more details
-#
+
+# =============================================================================
+# TEMPORARY FILES
+# =============================================================================
 
 # Swap files (vim)
 [._]*.s[a-v][a-z]
@@ -16,43 +19,98 @@
 [._]s[a-rt-v][a-z]
 [._]ss[a-gi-z]
 [._]sw[a-p]
+
 # Temporary files including undo
 *~
-#
+
+# =============================================================================
+# MOODLE/IOMAD SPECIFIC
+# =============================================================================
+
+# Configuration files (generated during installation)
 /config.php
+phpunit.xml
+/behat.yml
+
+# Build and cache files
+/.cache
+/.patches/
+.phpunit.result.cache
+
+# Tags and documentation
 /tags
 /TAGS
 /cscope.*
-/.patches/
-/.idea/
-.phpstorm.*
-/nbproject/
-CVS
-.DS_Store
-/.settings/
-/.project
-/.buildpath
-/.cache
-.phpunit.result.cache
-phpunit.xml
-# Composer support. Do not ignore composer.json, or composer.lock. These should be shipped by us.
-composer.phar
-/vendor/
-/behat.yml
-*/yui/build/*/*-coverage.js
-/lib/yuilib/*/build/*/*-coverage.js
-# lib/yuilib/version/module/module-coverage.js
-/lib/yuilib/*/*/*-coverage.js
-atlassian-ide-plugin.xml
-/node_modules/
-/.vscode/
-moodle-plugin-ci.phar
-.eslintignore
-.stylelintignore
 /jsdoc
 /admin/tool/componentlibrary/docs
 /admin/tool/componentlibrary/hugo/site/data/my-index.json
 .hugo_build.lock
-phpcs.xml
+
+# YUI coverage files
+*/yui/build/*/*-coverage.js
+/lib/yuilib/*/build/*/*-coverage.js
+/lib/yuilib/*/*/*-coverage.js
+
+# =============================================================================
+# DEPENDENCIES
+# =============================================================================
+
+# Node.js
+/node_modules/
+
+# Composer
+composer.phar
+/vendor/
+composer.lock
+
+# Plugin CI
+moodle-plugin-ci.phar
+
+# =============================================================================
+# IDE AND EDITOR FILES
+# =============================================================================
+
+# IntelliJ/PhpStorm
+/.idea/
+.phpstorm.*
+atlassian-ide-plugin.xml
+
+# VS Code
+/.vscode/
 jsconfig.json
+
+# NetBeans
+/nbproject/
+
+# Eclipse
+/.settings/
+/.project
+/.buildpath
+
+# Cloud9
 .c9/*
+
+# =============================================================================
+# LINTING AND CODE STYLE
+# =============================================================================
+
+.eslintignore
+.stylelintignore
+phpcs.xml
+
+# =============================================================================
+# OPERATING SYSTEM FILES
+# =============================================================================
+
+# macOS
+.DS_Store
+
+# CVS
+CVS
+
+# =============================================================================
+# ENVIRONMENT AND SECRETS
+# =============================================================================
+
+# Environment file - contains secrets!
+.env
