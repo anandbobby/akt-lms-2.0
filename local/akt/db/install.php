@@ -36,8 +36,17 @@ function xmldb_local_akt_install() {
     unassign_capability('block/iomad_approve_access:approve', $authrole->id);
     unassign_capability('block/iomad_company_admin:companymanagement_view', $authrole->id);
     unassign_capability('block/iomad_company_admin:coursemanagement_view', $authrole->id);
-    unassign_capability('local/iomad_learningpath:manage', $authrole->id);
-    unassign_capability('local/iomad_learningpath:view', $authrole->id);
+    
+    // FIX: Only unassign learning path capabilities if the plugin and its capabilities actually exist.
+    // This prevents a fatal error during initial installation if local/akt installs before local/iomad_learningpath.
+    if (file_exists($CFG->dirroot . '/local/iomad_learningpath/lib.php')) {
+        $capabilities = get_capability_info('local/iomad_learningpath:manage');
+        if (!empty($capabilities)) {
+            unassign_capability('local/iomad_learningpath:manage', $authrole->id);
+            unassign_capability('local/iomad_learningpath:view', $authrole->id);
+        }
+    }
+    
     unassign_capability('local/report_emails:resend', $authrole->id);
     unassign_capability('local/report_emails:view', $authrole->id); 
     $authrole->name = "Tenant Manager";

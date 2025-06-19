@@ -1,0 +1,59 @@
+# Docker Compose configuration for AKTREA LMS Refactor 2.0
+# Reads configuration from the .env file for portability and security.
+
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:10.6
+    container_name: aktrea-lms-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - lms-network
+
+  web:
+    build: .
+    container_name: aktrea-lms-web
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT}:80"
+    volumes:
+      # Mount the entire project directory into the container
+      - .:/var/www/html
+      # Mount a persistent volume for Moodle's data directory
+      - moodledata:/var/www/moodledata
+    depends_on:
+      - db
+    networks:
+      - lms-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: aktrea-lms-pma
+    restart: unless-stopped
+    ports:
+      - "${PHPMYADMIN_PORT}:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    depends_on:
+      - db
+    networks:
+      - lms-network
+
+# Define the persistent volumes
+volumes:
+  db_data:
+  moodledata:
+
+# Define the network for container communication
+networks:
+  lms-network:
+    driver: bridge
