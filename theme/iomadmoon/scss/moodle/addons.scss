@@ -1,0 +1,1181 @@
+// Plugin: https://github.com/mudrd8mz/moodle-block_course_contents
+.block_course_contents {
+  .badge {
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+    background-color: $primary-color-100;
+
+    font-size: $font-size-xs;
+    color: var(--main-theme-color);
+  }
+
+  .section-number {
+    margin-right: .35rem;
+  }
+
+  .section-item {
+    margin: 3px 0;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover {
+      background-color: $primary-color-100;
+    }
+
+    &.active {
+      background-color: $gray-100;
+      color: $body-color-light;
+
+      .badge {
+        background-color: $container-bg;
+      }
+    }
+  }
+
+  a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    border-radius: $border-radius;
+
+    line-height: 1.4;
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.block_course_contents {
+  .list-group-item {
+    padding: .25rem;
+    border-radius: $border-radius;
+    border-bottom: 0;
+  }
+}
+
+//-- Credits: https://codepen.io/supah/
+.spinner {
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -15px 0 0 -15px;
+  width: 30px;
+  height: 30px;
+
+  & .path {
+    stroke: $gray-300;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+
+// Module Section navigation https://moodle.org/plugins/block_course_modulenavigation
+.block.block_course_modulenavigation .section-group {
+  margin-bottom: 0;
+}
+
+.block.block_course_modulenavigation .section {
+  border: none
+}
+
+.block.block_course_modulenavigation .module-navigation-section-heading {
+  padding: 10px 1.25rem 0 1.25rem;
+  margin: 0 -1.25rem 10px;
+  width: calc(100% + 2.5rem);
+  border-top: 1px solid $border-color;
+
+  background-color: transparent;
+
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+
+  &:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  a {
+    color: $body-color;
+  }
+
+}
+
+.block.block_course_modulenavigation .section-default>.module-navigation-section-heading {
+  background-color: transparent;
+}
+
+.block.block_course_modulenavigation .section-group .section:last-of-type {
+  .module-navigation-section-heading {
+    margin-bottom: 0;
+  }
+}
+
+.block.block_course_modulenavigation ul.activities li>a {
+  border-bottom: none;
+  border-radius: $border-radius;
+
+  font-weight: $font-weight-medium;
+  font-size: $font-size-xs;
+  color: $body-color-secondary;
+}
+
+.block.block_course_modulenavigation .pagination>li a,
+.block.block_course_modulenavigation .allpagination>li a {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: none;
+  }
+}
+
+.block.block_course_modulenavigation .section-group .module-navigation-section-heading+.section-collapse>.section-body,
+.block.block_course_modulenavigation .section-group .module-navigation-section-heading+.section-collapse>.list-group {
+  border-top: none;
+}
+
+.block.block_course_modulenavigation .section-group .section {
+  border-radius: $border-radius;
+}
+
+// Edwiser Plugin
+body#page-course-view-remuiformat .container-fluid #region-main {
+  background-color: transparent !important;
+}
+
+body#page-course-view-remuiformat .course-content .sections {
+  padding: 0 !important;
+}
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .general-single-card,
+body#page-course-view-remuiformat .remui-format-list.one-section-format .activities-list {
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0 !important;
+}
+
+body#page-course-view-remuiformat .remui-format-list.one-section-format .activities-list {
+  margin-top: 30px;
+}
+
+body#page-course-view-remuiformat .remui-format-list #section-0 .general-section-activities .activity {
+  margin: 2px !important;
+  padding: 1rem !important;
+  border-radius: $border-radius;
+  border: 1px solid $border-color !important;
+}
+
+body#page-course-view-remuiformat .remui-format-card.all-section-format .section .sectionname {
+  font-size: $font-size-base;
+}
+
+body#page-course-view-remuiformat .remui-format-card.all-section-format .section .section-activities-summary .item {
+  padding: 3px 10px 3px 0;
+  font-size: $font-size-xs;
+}
+
+body#page-course-view-remuiformat .remui-format-list .sections .section .sectionname {
+  a {
+    color: inherit;
+
+    &:before {
+      background-color: $body-color;
+    }
+  }
+}
+
+body#page-course-view-remuiformat .remui-format-list #section-0 #teachers-carousel {
+  width: 200px;
+}
+
+body#page-course-view-remuiformat .remui-format-list #section-0 .carousel-control.left,
+body#page-course-view-remuiformat .remui-format-list #section-0 .carousel-control.right,
+body#page-course-view-remuiformat .remui-format-list #section-0 .carousel-control-prev,
+body#page-course-view-remuiformat .remui-format-list #section-0 .carousel-control-next {
+  width: 25px !important;
+}
+
+body#page-course-view-remuiformat .remui-format-list #section-0 .carousel-inner {
+  margin: 0 auto;
+}
+
+body#page-course-view-remuiformat:not(.editing) .remui-format-list .sections .section .sectionname .panel-title .float-right {
+  padding-right: 20px;
+}
+
+body#page-course-view-remuiformat .remui-format-card.all-section-format .section .wdm-section-summary {
+  font-size: $font-size-sm;
+  color: $body-color-secondary;
+}
+
+body#page-course-view-remuiformat .remui-format-card.all-section-format .section .section-activities-summary {
+  font-size: $font-size-xs;
+  color: $gray-600;
+
+  li {
+    font-size: $font-size-xs;
+  }
+}
+
+body#page-course-view-remuiformat .general-section-activities .activity .actions,
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity {
+  margin: 0 !important;
+
+  .rui-completion-info,
+  .rui-contentafterlink,
+  .resourcelinkdetails {
+    margin-left: 0 !important;
+  }
+}
+
+body#page-course-view-remuiformat .general-section-activities .activity .actions {
+  margin-top: 10px;
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+
+  .rui-completion-info--manual {
+    position: relative;
+  }
+}
+
+body#page-course-view-remuiformat .sectionbadges,
+body#page-course-view-remuiformat .sectionbadges .badge {
+  margin-left: 0 !important;
+}
+
+body#page-course-view-remuiformat .remui-format-card.all-section-format #section-0 .activitieshead,
+body#page-course-view-remuiformat .remui-format-card.all-section-format #section-0 .general-section-activities {
+  padding: 0;
+}
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity>div,
+body#page-course-view-remuiformat .remui-format-card.all-section-format #section-0 .general-section-activities .activity {
+  padding: 5px;
+  margin: 0;
+}
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity>div,
+body#page-course-view-remuiformat .remui-format-card.all-section-format #section-0 .general-section-activities .activity>div,
+body#page-course-view-remuiformat .remui-format-card.all-section-format .section .single-card {
+  padding: 1rem !important;
+  border-radius: $border-radius;
+  border: 1px solid $border-color !important;
+  box-shadow: none;
+
+  span.autocompletion img {
+    margin-top: 5px;
+  }
+}
+
+body#page-course-view-remuiformat .remui-format-card.all-section-format .section .single-card {
+  min-height: 150px;
+}
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .single-card {
+  min-height: 120px;
+}
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .completion-container {
+  top: 40px;
+  padding: 0 !important;
+  right: 20px;
+}
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .wdm-mod-name {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  margin-bottom: 1rem;
+}
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity {
+  border-bottom: 0;
+}
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .title a,
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .title.nosummary a {
+  &:hover {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .title.nosummary img {
+  margin: 0 0 0.5rem 0;
+  width: 40px;
+  height: 40px;
+}
+
+body#page-course-view-remuiformat .remui-format-card.all-section-format #section-0 .general-section-activities .activity>div,
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .title.nosummary a {
+  text-align: left;
+}
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .title.nosummary>a,
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .title.nosummary div {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+body#page-course-view-remuiformat .container-fluid #region-main .card,
+body#page-course-view-remuiformat .remui-format-card.all-section-format .section .general-section {
+  background-color: $body-bg;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+}
+
+body#page-course-view-remuiformat .course-content .card {
+  padding: 1rem 1.25rem;
+  margin-bottom: 10px !important;
+}
+
+body#page-course-view-remuiformat .container-fluid #region-main .card.block_html {
+  border: none;
+}
+
+body#page-course-view-remuiformat .container-fluid #region-main .card>.card-body:first-of-type {
+  background-color: transparent;
+}
+
+body#page-course-view-remuiformat #section-0 .progress {
+  margin-top: 5px;
+  margin-bottom: 5px !important;
+  border-radius: $border-radius;
+  overflow: hidden;
+}
+
+.wdm-generalsectiontitle {
+  font-size: 1.25rem;
+  font-weight: $font-weight-medium;
+}
+
+body#page-course-view-remuiformat .remui-format-list.all-section-format ul.sections li.section:not(#section-0)>div,
+body#page-course-view-remuiformat .remui-format-list.one-section-format.all-section .sections .section:not(#section-0)>div {
+  box-shadow: none;
+  padding: 0 !important;
+}
+
+body#page-course-view-remuiformat .remui-format-list.all-section-format ul.sections li.section .toggle-icon {
+  position: absolute;
+  right: 0;
+}
+
+body#page-course-view-remuiformat .remui-format-list.all-section-format ul.sections li.section .toggle-icon::before {
+  font-size: 18px;
+  color: $gray-800;
+}
+
+body#page-course-view-remuiformat .remui-format-list #section-0 .course-cover-image {
+  padding: 2rem !important;
+  border-radius: $border-radius;
+}
+
+body#page-course-view-remuiformat .remui-format-list .sections .section .card-footer {
+  padding: 0 !important;
+}
+
+body#page-course-view-remuiformat .remui-format-list.one-section-format .activities-list ul.section .activity {
+  padding: 15px 20px !important;
+}
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .title a,
+body#page-course-view-remuiformat .general-section-activities .activityinstance .instancename,
+body#page-course-view-remuiformat .remui-format-list #section-0 .general-section-activities .instancename {
+  width: 100%;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  font-size: $font-size-sm;
+  line-height: 1.3;
+  text-align: left;
+
+  .instancename {
+    display: block;
+    margin-top: 0.5rem;
+  }
+}
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .completion-container.manual-completion {
+  .rui-completion-info--manual {
+    position: relative;
+  }
+}
+
+body#page-course-view-remuiformat .remui-format-list #section-0 .general-section-activities .activity {
+  width: calc(25% - 4px);
+}
+
+body#page-course-view-remuiformat .remui-format-list #section-0 .general-section-activities .activity .activityinstance {
+  display: block !important;
+  text-align: left;
+}
+
+body#page-course-view-remuiformat .remui-format-list #section-0 .general-section-activities .activity .activityinstance>a {
+  display: flex;
+  flex-wrap: wrap;
+
+  .rui-instancename {
+    margin-top: .35rem;
+  }
+}
+
+body#page-course-view-remuiformat .remui-format-list #section-0 .summary {
+  min-height: auto;
+}
+
+body#page-course-view-remuiformat .general-section-activities .activity .activityinstance {
+  text-align: left;
+
+  .aalink {
+    display: flex;
+    align-items: center;
+  }
+}
+
+body#page-course-view-remuiformat .general-section-activities .activityinstance img,
+body#page-course-view-remuiformat .remui-format-list #section-0 .general-section-activities .activity .activityinstance .iconlarge.activityicon {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+body#page-course-view-remuiformat .remui-format-card.single-section-format .activity-cards .activity .activity-content,
+body#page-course-view-remuiformat .general-section-activities .activity .contentafterlink,
+body#page-course-view-remuiformat .section-summary-activities {
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+  text-align: left !important;
+  font-size: $font-size-xs;
+  color: $gray-600;
+
+  &:empty {
+    display: none;
+  }
+}
+
+
+body#page-course-view-remuiformat li.activity form.togglecompletion .btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+body#page-course-view-remuiformat .remui-format-list #section-0 .general-section-activities .activity .actions {
+  position: relative;
+  right: auto;
+  top: 5px;
+  justify-content: flex-start;
+}
+
+body#page-course-view-remuiformat .general-section-activities .activity {
+  border-bottom: 0;
+  text-align: left;
+}
+
+body#page-course-view-remuiformat .general-section-activities .activity:first-of-type {
+  margin-left: 0;
+}
+
+body#page-course-view-remuiformat .remui-format-card.all-section-format #section-0 .activitieshead {
+  padding: 0 1.3rem;
+}
+
+
+body#page-course-view-remuiformat .remui-format-list #section-0 .carousel-inner {
+  width: 105px;
+
+  a {
+    margin: 3px;
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+body#page-course-view-remuiformat .section-modchooser .section-modchooser-link {
+  box-shadow: none !important;
+  border: 0 !important;
+  color: $gray-900 !important;
+}
+
+body#page-course-view-remuiformat .section-modchooser .section-modchooser-link *,
+body#page-course-view-remuiformat .section-modchooser .section-modchooser-link a:hover {
+  color: inherit !important;
+}
+
+body#page-course-view-remuiformat .course-content .sections .wdm-add-new-section {
+  width: 100%;
+  padding: .35rem 1.7rem .35rem .75rem !important;
+  font-size: $font-size-xs;
+}
+
+
+// Course Format Buttons
+.course-content ul.buttons {
+  padding: 0;
+}
+
+.course-content ul.buttons li.section .content {
+  margin: 0;
+}
+
+.course-content ul.buttons li.section .left,
+.course-content ul.buttons li.section .right {
+  padding: 0;
+}
+
+// URL: https://moodle.org/plugins/tool_gdpr_plus
+.tool_gdpr_plus.policies-consent .policy-container {
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+
+  width: calc(100% - 20px);
+  border-radius: $border-radius;
+}
+
+// Course Format: Trail
+// URL: https://moodle.org/plugins/format_trail
+div#trailmiddle-column>ul {
+  padding: 0;
+
+  li.section ul {
+    padding: 0;
+  }
+}
+
+// Course Format: Tiles
+// URL: https://moodle.org/plugins/format_tiles
+.format-tiles .subtile.hasphoto .btn.completion-btn,
+.format-tiles .subtile.hasphoto .subtilecontrols,
+.format-tiles.editing .section .activity.subtile.hasphoto .action-menu,
+.format-tiles.jsenabled ul.tiles {
+  max-width: 100% !important;
+}
+
+.format-tiles #section-0 ul.section {
+  margin: 30px 0 !important;
+  padding: 0 !important;
+  border: 1px solid $border-color;
+  border-radius: $border-radius !important;
+}
+
+.format-tiles .course-content #filterbuttons {
+  margin-right: 0;
+  margin-bottom: 0;
+  min-height: auto;
+  display: inline-flex;
+  align-items: center;
+}
+
+.format-tiles .tiles-top-button,
+.format-tiles .filterbutton {
+  margin-left: .25rem;
+  border-radius: $border-radius;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $body-color !important;
+}
+
+.format-tiles .tiles-top-button {
+  background-color: transparent;
+}
+
+.format-tiles .tiles-top-button:hover,
+.format-tiles .filterbutton:hover,
+.sectionbutton:hover,
+.format-tiles .filterbutton.selected {
+  background-color: $primary-color-100 !important;
+  color: var(--main-theme-color) !important;
+}
+
+.format-tiles .overall-progress {
+  display: inline-flex;
+  align-items: center;
+  font-size: $font-size-xs;
+}
+
+.format-tiles .course-content ul.tiles .tile {
+  border-radius: $border-radius !important;
+  box-shadow: none !important;
+}
+
+.format-tiles ul.tiles .tile h3 {
+  font-size: $font-size-base !important;
+  font-weight: $font-weight-bold;
+  color: $body-color !important;
+}
+
+format-tiles .tileiconcontainer .icon {
+  width: 35px !important;
+  height: 35px !important;
+}
+
+.tiletopright {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.path-mod-quiz-accessrule-proctoring {
+  .reporttable {
+    .fa-folder-o {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='#{url-friendly-colour($primary-color-600)}' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M19.25 17.25V9.75C19.25 8.64543 18.3546 7.75 17.25 7.75H4.75V17.25C4.75 18.3546 5.64543 19.25 6.75 19.25H17.25C18.3546 19.25 19.25 18.3546 19.25 17.25Z'%3E%3C/path%3E%3Cpath stroke='#{url-friendly-colour($primary-color-600)}' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M13.5 7.5L12.5685 5.7923C12.2181 5.14977 11.5446 4.75 10.8127 4.75H6.75C5.64543 4.75 4.75 5.64543 4.75 6.75V11'%3E%3C/path%3E%3C/svg%3E%0A");
+      background-size: 18px;
+      background-position: center;
+      height: 12px;
+    }
+  }
+}
+
+
+#page-admin-enrol-programs-management-program {
+  dl.row {
+    margin-top: $page-padding-global;
+  }
+}
+
+#program_content {
+  .c0 {
+    .rui-icon-container {
+      margin-right: 10px;
+
+      .dir-rtl & {
+        margin-right: 0;
+        margin-left: 10px;
+      }
+
+      .theme-dark & {
+        filter: invert(1);
+      }
+    }
+  }
+}
+
+// Block Timetable
+.block_timetable .content {
+  margin: 0 !important;
+
+  .rui-icon-container {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: $white;
+    border-radius: $border-radius;
+  }
+
+  .card-text span {
+    color: $body-color;
+  }
+}
+
+.theme-dark .block_timetable .footer {
+  border-color: $dm-border-color;
+
+  .icon {
+    filter: invert(1);
+  }
+}
+
+.block_timetable .timetable-event {
+  font-weight: $font-weight-medium;
+}
+
+.block_timetable .calendar_event_site {
+  background-color: #f4fdf2;
+  border-left: 5px solid #9cff83;
+  color: $body-color !important;
+}
+
+.block_timetable .calendar_event_site,
+.block_timetable .calendar_event_site a {
+  color: #265619 !important;
+}
+
+.block_timetable .calendar_event_category {
+  background-color: #f5eff5;
+  border-left: 5px solid #e0cbe0;
+  color: $body-color !important;
+}
+
+.block_timetable .calendar_event_category .timetable-event,
+.block_timetable .calendar_event_category a {
+  color: #4e254e !important;
+}
+
+.block_timetable .calendar_event_course .timetable-event,
+.block_timetable .calendar_event_course a {
+  color: #381400 !important;
+}
+
+.block_timetable .calendar_event_course {
+  background-color: #fff5ee;
+  border-left: 5px solid #facfb9;
+  color: #381400 !important;
+}
+
+.block_timetable .calendar_event_user .timetable-event,
+.block_timetable .calendar_event_user a {
+  color: #3e576f !important;
+}
+
+.block_timetable .calendar_event_group {
+  background-color: #f2eee3;
+  border-left: 5px solid #fee7ae;
+  color: #684b05 !important;
+}
+
+.block_timetable .calendar_event_group .timetable-event,
+.block_timetable .calendar_event_group a {
+  color: #684b05 !important;
+}
+
+.block_timetable .calendar_event_user {
+  background-color: #f3f4f6;
+  border-left: 5px solid #ced4da;
+  color: $body-color !important;
+}
+
+.block_timetable .calendar_event_other {
+  background-color: #ced4da;
+  border-left: 5px solid #6c6c6c;
+  color: $body-color !important;
+}
+
+.block_timetable .events .coursename {
+  font-weight: $font-weight-medium;
+  font-size: $font-size-xs;
+}
+
+.block_timetable .event-item {
+  border-radius: $border-radius;
+  box-shadow: none;
+
+  .theme-dark & {
+    filter: invert(1);
+  }
+}
+
+.block_timetable .footer {
+  border-top: 1px solid $border-color;
+
+  .theme-dark {
+    border-color: $dm-border-color;
+  }
+}
+
+.block_timetable .timetable_day {
+  background: #f2f2f2;
+  color: $body-color;
+
+  border: 1px solid $border-color;
+
+  .theme-dark {
+    border-color: $dm-border-color;
+  }
+}
+
+.block_timetable .timetable_day a {
+  color: $body-color;
+}
+
+.block_timetable .timetable_day:hover,
+.block_timetable .timetable_day.now,
+.block_timetable .timetable_day.active {
+  border: 1px solid var(--main-theme-color);
+}
+
+.block_timetable .timetable_day:hover a,
+.block_timetable .timetable_day.active {
+  background: #000;
+  color: #fff;
+}
+
+.block_timetable .timetable_day.inactive a {
+  color: #c1c1cb;
+}
+
+.block_timetable .timetable_day.inactive.active a,
+.block_timetable .timetable_day.active a {
+  color: #fff;
+}
+
+// Course Format Trail
+#trailmiddle-column {
+  margin-top: $page-padding-global;
+
+  .summary {
+    margin-bottom: 10px;
+  }
+
+  .section {
+    padding: 0;
+    border-radius: $border-radius;
+    border: 1px solid $border-color;
+
+    .activity {
+      padding: 10px;
+      border-bottom: 1px solid $border-color;
+
+      .theme-dark & {
+        border-color: $dm-border-color;
+      }
+    }
+
+    .theme-dark & {
+      border-color: $dm-border-color;
+    }
+  }
+}
+
+div#trailshadebox_overlay {
+  z-index: 9998 !important;
+}
+
+#trailshadebox_content.absolute {
+  z-index: 10000 !important;
+}
+
+#trailshadebox_content {
+  .activity {
+    padding: 10px;
+    border-bottom: 1px solid $border-color;
+
+    .theme-dark & {
+      border-color: $dm-border-color;
+    }
+  }
+
+  ul.section {
+    margin-top: 20px;
+    padding: 0;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+
+    .theme-dark & {
+      border-color: $dm-border-color;
+    }
+  }
+}
+
+#trailshadebox_content {
+  padding: 20px;
+  border-radius: $border-radius;
+}
+
+.gtopics {
+  padding: 0;
+  margin: 0;
+}
+
+.course-content ul.trailicons li .icon_content {
+  padding: 10px;
+  height: auto;
+  font-size: $font-size-sm;
+}
+
+.course-content ul.trailicons li.currentselected {
+  border-radius: $border-radius;
+}
+
+// Course Format Tiles
+#page-course-view-tiles.format-tiles-tile-open {
+  .tiles {
+    position: relative;
+    z-index: 1140 !important;
+  }
+
+  #overlay {
+    z-index: 1139;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+.format-tiles ul.tiles li.section .content {
+  margin: 20px;
+}
+
+.format-tiles #page .course-content ul li.section.main {
+  border-radius: $border-radius;
+}
+
+.format-tiles .course-content {
+  margin-top: $page-padding-global;
+}
+
+.format-tiles .course-content li.section ul.section {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.format-tiles li.activity.subtile {
+  width: 50%;
+  max-width: 50%;
+  border-radius: $border-radius;
+}
+
+.format-tiles .sectionbuttons {
+  right: 0;
+  margin-bottom: 20px;
+}
+
+.format-tiles .course-content ul li.section.main.moveablesection {
+  padding: 10px;
+}
+
+.format-tiles .sectionbutton {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 0;
+  margin-right: 10px;
+  border-radius: $border-radius;
+
+}
+
+.format-tiles .sectionbutton,
+.format-tiles .sectionbutton .icon {
+  padding: 10px;
+}
+
+.format-tiles li.activity.subtile .activitytype {
+  padding: 8px 10px;
+}
+
+.format-tiles li.activity.subtile .activityname h4 {
+  font-size: $font-size-base;
+}
+
+// Course Format OneTopic
+.onetopic {
+  padding: 0;
+  list-style: none;
+}
+
+#tabs-tree-start {
+  .format_onetopic-tabs {
+    background-color: $gray-100;
+    border-radius: $border-radius;
+
+    .theme-dark & {
+      background-color: $dm-gray-100;
+    }
+  }
+}
+
+// Course Format MultiTopic
+.format-multitopic .sections .section_subtitle:empty {
+  display: none;
+}
+
+.format-multitopic {
+  .course-content li.section ul {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    list-style: none;
+  }
+}
+
+.theme-dark.format-multitopic {
+  .course-content li.section ul {
+    border-color: $dm-border-color;
+  }
+}
+
+// Course Format Flexible Sections Format
+.course-content ul.flexsections {
+  margin-bottom: 0;
+
+  li.section {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: $gray-100;
+    border-radius: $border-radius;
+
+    .theme-dark & {
+      background-color: $dm-gray-100;
+    }
+  }
+
+  .sectionname {
+    font-size: $font-size-base;
+  }
+
+  .rui-section {
+    margin-bottom: 0;
+  }
+}
+
+// Course Format Format Kickstart
+.format-kickstart {
+  .course-content {
+    .btn-outline-primary {
+      margin: 20px 0;
+    }
+  }
+}
+
+// Course Format Format Designer
+.format-designer .designer .section .content .section.link-layout li.activity .mod-indent-outer {
+  padding: 10px;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+}
+
+.theme-dark.format-designer .designer .section .content .section.link-layout li.activity .mod-indent-outer {
+  border-color: $dm-border-color;
+}
+
+.format-designer .designer .section .content .section.link-layout li.activity .center-reports-block {
+  width: auto;
+  float: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.format-designer .course-content ul.designer li.section .section-progress-info {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.format-designer .designer .section .content .section.link-layout li.activity .activityinstance {
+  width: 100%;
+}
+
+.format-designer .designer .section .content .section li.activity .activity-block.designer {
+  padding: 0;
+}
+
+.format-designer ul.designer .badge.badge-completion {
+  padding: .35rem .85rem;
+}
+
+.format-designer .designer .section .content .section.link-layout li.activity .mod-content {
+  font-size: $font-size-sm;
+}
+
+.format-designer .designer .section .content .section li.activity .activityinstance .instancename {
+  font-weight: $font-weight-medium;
+}
+
+.format-designer .designer .section .content .section li.activity .activityinstance .activity-type p {
+  font-weight: $font-weight-medium;
+  color: $body-color-light;
+}
+
+.theme-dark.format-designer .designer .section .content .section li.activity .activityinstance .activity-type p {
+  color: $dm-body-color-light;
+}
+
+.format-designer .designer .section .content .section li.activity .activityinstance .aalink {
+  color: $body-color;
+}
+
+.theme-dark.format-designer .designer .section .content .section li.activity .activityinstance .aalink {
+  color: $dm-body-color;
+}
+
+// Quiz Additional Plugins
+.activity-navigation {
+  #printquizpreviewquiz {
+    width: 100% !important;
+  }
+}
+
+
+// Mod Attendence
+.path-mod-attendance .attbtn {
+  border: 0;
+  padding: 0;
+}
+
+.path-mod-attendance .takecontrols {
+  width: 100%;
+}
+
+.path-mod-attendance .helptooltip {
+  .icon {
+    padding: 6px;
+
+    width: 18px;
+    height: 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: $border-radius-lg;
+
+    background-color: $gray-200;
+    font-size: $font-size-xs;
+    color: $gray-800;
+
+    transition: $transition-base;
+
+    .theme-dark & {
+      filter: invert(1);
+    }
+  }
+}
+
+// Mod Certificate Template
+.path-admin-tool-certificate {
+  .btn.iconlarge {
+    width: auto;
+    font-size: $font-size-xs;
+  }
+
+  .dropdown .btn.iconlarge {
+    width: auto;
+    font-size: $font-size-xs;
+  }
+}

@@ -1,0 +1,28 @@
+//---- Database for default UI
+//---- Module Activity
+//----
+//---- TODO: Add different styles and templates
+
+.picturesingle {
+    img {
+        max-width: 100%;
+        border-radius: $border-radius;
+    }
+}
+
+.recordauthor {
+    margin-bottom: 1rem;
+    padding: .35rem;
+    border-radius: $border-radius;
+    border: 1px solid $border-color;
+
+    a {
+        display: inline-flex;
+    }
+}
+
+#page-mod-data-view {
+    .jsenabled .comment-link {
+        margin-top: 2rem;
+    }
+}

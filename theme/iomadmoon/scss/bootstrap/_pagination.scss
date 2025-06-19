@@ -1,0 +1,97 @@
+.pagination,
+.comment-paging {
+  margin: 1rem 0;
+  display: flex;
+  @include list-unstyled();
+  @include border-radius();
+}
+
+.page-link,
+.comment-paging a {
+  position: relative;
+  display: flex;
+  padding: $pagination-padding-y $pagination-padding-x;
+  margin-left: $pagination-border-width;
+  line-height: $pagination-line-height;
+  font-weight: $font-weight-medium;
+  color: $pagination-color;
+  text-decoration: if($link-decoration == none, null, none);
+  border-radius: $border-radius;
+
+  .theme-dark & {
+    color: $dm-pagination-color;
+  }
+
+  &:hover {
+    z-index: 2;
+    color: $pagination-hover-color;
+    text-decoration: none;
+    background-color: $pagination-hover-bg;
+
+    .theme-dark & {
+      color: $dm-pagination-hover-color;
+      background-color: $dm-pagination-hover-bg;
+    }
+  }
+
+  &:focus {
+    z-index: 3;
+  }
+}
+
+.page-item {
+  &.active .page-link {
+    z-index: 3;
+    color: $pagination-active-color;
+    background-color: $pagination-active-bg;
+
+    .theme-dark & {
+      color: $dm-pagination-active-color;
+      background-color: $dm-pagination-active-bg;
+    }
+  }
+
+  &.disabled .page-link {
+    color: $pagination-disabled-color;
+    pointer-events: none;
+    // Opinionated: remove the "hand" cursor set previously for .page-link
+    cursor: auto;
+    background-color: $pagination-disabled-bg;
+    border-color: $pagination-disabled-border-color;
+
+    opacity: .3;
+
+    .theme-dark & {
+      color: $dm-pagination-disabled-color;
+      background-color: $dm-pagination-disabled-bg;
+      border-color: $dm-pagination-disabled-border-color;
+    }
+  }
+}
+
+  //Comments pagination
+  .comment-pagination {
+    margin-bottom: 1rem;
+  }
+
+  .curpage {
+    color: $pagination-active-color;
+    background-color: $pagination-active-bg;
+
+    .theme-dark & {
+      color: $dm-pagination-active-color;
+      background-color: $dm-pagination-active-bg;
+    }
+  }
+
+//
+// Sizing
+//
+
+.pagination-lg {
+  @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $line-height-lg, $pagination-border-radius-lg);
+}
+
+.pagination-sm {
+  @include pagination-size(10px, 10px, $font-size-sm, $line-height-sm, $pagination-border-radius-sm);
+}

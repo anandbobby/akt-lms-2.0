@@ -1,0 +1,1624 @@
+/**
+ * Moodle forms HTML isn't changeable via renderers (yet?) so this
+ * .less file imports styles from the bootstrap $variables file and
+ * adds them to the existing Moodle form CSS ids and classes.
+ *
+ */
+
+.jsenabled .mform .containsadvancedelements .advanced {
+  display: none;
+}
+
+.mform .containsadvancedelements .advanced.show {
+  display: flex;
+}
+
+#adminsettings span.error {
+  display: inline-block;
+  border: 1px solid $state-danger-border;
+  border-radius: 4px;
+  background-color: $state-danger-bg;
+  padding: 4px;
+  margin-bottom: 4px;
+}
+
+.mform .form-inline {
+
+  .form-control,
+  .custom-select {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .form-group {
+    margin: 0.1rem 0.25rem 0.1rem 0;
+    max-width: 100%;
+  }
+
+  br+label {
+    justify-content: flex-start;
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.unresponsive.mform .form-inline,
+.unresponsive.mform .form-inline label {
+  display: inline-flex;
+}
+
+#jump-to-activity.custom-select {
+  width: 100%;
+
+  @include media-breakpoint-between(xs, sm) {
+    min-width: 130px;
+  }
+}
+
+.mform fieldset {
+  margin-bottom: 0;
+}
+
+#adminsettings .form-control[size] {
+  width: auto;
+}
+
+#adminsettings .error {
+  color: $danger;
+}
+
+.mform ul.file-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.mform label .req,
+.mform label .adv {
+  cursor: help;
+}
+
+/*rtl:ignore*/
+input#id_externalurl {
+  direction: ltr;
+}
+
+#portfolio-add-button {
+  display: inline;
+}
+
+.form-defaultinfo {
+  display: block;
+
+  padding: $badge-padding-y $badge-padding-x;
+  @include font-size($badge-font-size);
+  font-weight: $badge-font-weight;
+  border-radius: $border-radius;
+  @extend .badge-light;
+}
+
+.form-label .form-shortname {
+  font-size: 11px;
+  color: $body-color-light;
+  word-break: break-word;
+}
+
+.form-item .form-inline {
+  display: inline;
+}
+
+.form-inline label:not(.sr-only):not(.accesshide)+select {
+  margin-top: .25rem;
+  margin-bottom: .25rem;
+  margin-left: 0.5rem;
+}
+
+// Moodle doesn't differentiate between what Bootstrap calls
+// .uneditable-inputs and form help text. Styling them both as
+// uneditable looks ugly, styling both as form help is fairly
+// subtle in it's impact. Going for the latter as the best option.
+.no-felement.fstatic {
+  color: $text-muted;
+  padding-top: 5px;
+}
+
+.no-fitem .fstaticlabel {
+  font-weight: $font-weight-bold;
+}
+
+.form-item .form-setting .defaultsnext>input {
+  display: inline-block;
+}
+
+.form-item .form-setting .form-checkbox.defaultsnext {
+  // Need to specify .defaultsnext and the .form-checkbox class
+  // is somewhat randomly re-used on various actual checkboxes
+  // throughout the admin forms, instead of on the wrapper div.
+  display: inline-block; // So above style sticks.
+}
+
+// I think this could be avoided (or at least tidied up) ifr
+// we used HTML5 input types like url, phone, email, number etc.
+/* rtl:ignore */
+.mform .fitem .felement input[name="email"],
+.mform .fitem .felement input[name="email2"],
+.mform .fitem .felement input[name="url"],
+.mform .fitem .felement input[name="idnumber"],
+.mform .fitem .felement input[name="phone1"],
+.mform .fitem .felement input[name="phone2"] {
+  text-align: left;
+  direction: ltr;
+}
+
+// Reduce the mediaplugin width when using inside forms.
+.que.match .mediaplugin {
+  width: 50vw;
+}
+
+/* rtl:ignore */
+#page-admin-grade-edit-scale-edit .error input#id_name {
+  margin-right: 170px;
+}
+
+#page-grade-edit-outcome-course .courseoutcomes {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+#page-grade-edit-outcome-course .courseoutcomes td {
+  text-align: center;
+}
+
+/* Install Process' text fields Forms, should always be justified to the left */
+/* rtl:ignore */
+#installform #id_wwwroot,
+#installform #id_dirroot,
+#installform #id_dataroot,
+#installform #id_dbhost,
+#installform #id_dbname,
+#installform #id_dbuser,
+#installform #id_dbpass,
+#installform #id_prefix {
+  direction: ltr;
+}
+
+.mdl-right>label {
+  // Workaround for repository pop-up because the : are outside the label,
+  // can/should be fixed in filemanager renderers.
+  display: inline-block;
+}
+
+.singleselect {
+  max-width: 100%;
+}
+
+.form-item .form-label label {
+  margin-bottom: 0;
+  font-weight: $font-weight-medium;
+  line-height: 1.2;
+  align-items: center;
+}
+
+.form-label {
+  font-weight: $font-weight-medium;
+}
+
+div#dateselector-calendar-panel {
+  z-index: 3100;
+  /* Set higher than the z-index of the filemanager - see MDL-39047. */
+}
+
+fieldset.coursesearchbox label {
+  display: inline;
+}
+
+/**
+ * Show the labels above text editors and file managers except on wide screens.
+ */
+
+/* Section and module editing forms contain special JS components for the
+   availability system (if enabled). */
+#id_availabilityconditionsjson[aria-hidden="true"],
+.availability-field [aria-hidden="true"] {
+  display: none;
+}
+
+.availability-field {
+  label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.5rem;
+
+    font-size: $font-size-xs;
+  }
+
+  .availability-group label {
+    vertical-align: top;
+    align-self: center;
+  }
+
+  .col-form-label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.availability-eye {
+  clear: left;
+  float: left;
+}
+
+.availability-header {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  font-weight: $font-weight-medium;
+  background-color: $gray-100;
+  border-radius: $border-radius;
+  padding: 5px 20px;
+
+  .availability-eye {
+    margin-right: 0.35rem;
+  }
+
+  input,
+  select {
+    padding-top: .375rem;
+    padding-bottom: .375rem;
+    padding-left: 0.65rem;
+    margin: 0.25rem;
+    font-size: $font-size-xs !important;
+  }
+
+  input {
+    padding-right: 0.65rem;
+  }
+
+  select {
+    padding-right: 30px;
+  }
+}
+
+.availability-inner,
+.availability-plugincontrols {
+  float: left;
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  padding: 0.35rem;
+  margin-top: 0;
+  margin-right: 0;
+
+  .availability-none {
+    background-color: $yellow-200;
+    padding: 0.25rem;
+    border-radius: $border-radius;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+
+    .badge {
+      margin: 0 !important;
+    }
+  }
+
+  .label {
+    display: inline-block;
+    margin: 0.25rem 0;
+    padding: 0.25rem 0.5rem;
+    background-color: $yellow-200;
+    border-radius: $border-radius;
+
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.availability-plugincontrols,
+.availability-childlist .availability-inner {
+  margin-left: 0.625rem;
+}
+
+.availability-field .availability-plugincontrols .availability-group select {
+  max-width: 12rem;
+}
+
+.availability-item {
+  border: 2px solid $green-600;
+  border-radius: $border-radius;
+  padding: 10px;
+
+  font-size: $font-size-sm;
+
+  .availability-group {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .availability-plugincontrols {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    input,
+    select {
+      padding-top: .375rem;
+      padding-bottom: .375rem;
+      padding-left: 0.65rem;
+      margin: 0.25rem;
+      font-size: $font-size-xs !important;
+    }
+
+    input {
+      padding-right: 0.65rem;
+    }
+
+    select {
+      padding-right: 30px;
+    }
+  }
+}
+
+.availability-delete {
+  margin-right: 10px;
+  margin-left: 10px;
+
+  padding: 0 !important;
+  text-align: center;
+  line-height: 28px;
+
+  background-color: $gray-100;
+  width: 30px;
+  height: 30px;
+
+  border-radius: $border-radius-xl;
+
+  transition: $transition-base;
+
+  &:hover {
+    background-color: $gray-200;
+  }
+
+  img {
+    width: 9px;
+  }
+}
+
+.availability-list {
+  .btn {
+    width: 100%;
+  }
+}
+
+//Footer button inside modal window
+.availability-buttons {
+  padding: 0 1rem;
+
+  .btn {
+    width: 100%;
+  }
+}
+
+
+
+/* Custom styles for autocomplete form element */
+/* These styles reserve a standard amount of space in the DOM to avoid flicker when the original select element is replaced */
+[data-fieldtype="autocomplete"] select,
+[data-fieldtype="tags"] select,
+.form-autocomplete-original-select {
+  visibility: hidden;
+  overflow: hidden;
+  width: 15rem;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  margin-top: $font-size-base * $line-height-base + $input-padding-y-sm;
+  vertical-align: bottom;
+}
+
+.form-autocomplete-selection [role="option"] {
+  cursor: pointer;
+  white-space: inherit;
+  word-break: break-word;
+  text-align: left;
+  justify-content: flex-start;
+
+  span {
+    min-width: max-content;
+    max-width: calc(100% - 30px);
+  }
+}
+
+.form-autocomplete-suggestions {
+  padding: $dropdown-padding-y $dropdown-padding-x;
+
+  min-width: 206px;
+  max-height: 20em;
+  overflow: auto;
+
+  position: absolute;
+  z-index: $zindex-tooltip;
+
+  background-color: $dropdown-bg;
+  border: $border-width solid $dm-border-color;
+  border-radius: $border-radius;
+
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $gray-200;
+
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+  .theme-dark & {
+    filter: invert(1);
+    box-shadow: rgba(255, 255, 255, 0.07) 0px 1px 2px, rgba(255, 255, 255, 0.07) 0px 2px 4px, rgba(255, 255, 255, 0.07) 0px 4px 8px, rgba(255, 255, 255, 0.07) 0px 8px 16px, rgba(255, 255, 255, 0.07) 0px 16px 32px, rgba(255, 255, 255, 0.07) 0px 32px 64px;
+  }
+}
+
+.form-autocomplete-suggestions li {
+  list-style-type: none;
+  padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+  border-radius: $border-radius;
+  margin: 0 0 0.25rem;
+  cursor: pointer;
+
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $dropdown-color;
+
+  &:empty {
+    display: none !important;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $dropdown-link-hover-bg;
+    color: $dropdown-link-hover-color;
+  }
+
+  &::before {
+    content: "\200B";
+  }
+
+  span {
+
+    //next row for additional informations
+    +span {
+      margin-left: 0;
+      display: block;
+
+      small {
+        color: $dropdown-color;
+      }
+    }
+
+    img {
+      margin-right: .35rem;
+      width: 20px;
+      height: 20px;
+      border-radius: $border-radius;
+    }
+  }
+
+  small {
+    display: block;
+    width: 100%;
+  }
+
+}
+
+.form-autocomplete-downarrow {
+  position: absolute;
+  top: calc(50% - 15px) !important;
+  right: 8px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  width: 30px;
+  height: 30px;
+  border-radius: $border-radius;
+
+  background-color: $gray-200;
+  color: $gray-800;
+
+  transition: $transition-base;
+
+  .icon {
+    font-size: $font-size-xs;
+    line-height: 16px;
+  }
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $gray-300;
+  }
+
+  .theme-dark & {
+    filter: invert(1);
+  }
+}
+
+/** Undo some bootstrap things */
+.form-autocomplete-selection+input.form-control {
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.form-autocomplete-selection {
+  max-width: 300px;
+}
+
+.form-autocomplete-selection [data-active-selection="true"] {
+  span {
+
+    //next row for additional informations
+    +span {
+      margin-left: 29px;
+      display: block;
+    }
+
+    img {
+      margin-right: .35rem;
+      width: 20px;
+      height: 20px;
+      border-radius: $border-radius;
+    }
+  }
+}
+
+
+/* Non-bootstrap selects with a size show their contents outside of the element.
+ * Remove when we update to stable bootstrap 4. (MDL-56511) */
+select[size],
+select[multiple] {
+  overflow: auto;
+}
+
+select[size="1"] {
+  overflow: visible;
+}
+
+textarea[data-auto-rows] {
+  overflow-x: hidden;
+  resize: none;
+}
+
+/** Display elements under labels in vertical forms regardless of the screen size. */
+.mform.full-width-labels {
+  .fitem.row {
+    margin-left: 0;
+    margin-right: 0;
+
+    &>.col-md-3,
+    &>.col-md-9 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      width: inherit;
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    &.femptylabel>.col-md-3 {
+      display: none;
+    }
+
+    .form-control {
+      width: 100%;
+    }
+  }
+}
+
+
+/** Allow wrapping an mform in a div with the form-inline class to have an inline, responsive form. */
+.form-inline {
+  @include media-breakpoint-up(md) {
+
+    .col-md-9,
+    .col-md-3 {
+      label {
+        margin-left: 1rem;
+      }
+
+      margin-bottom: 1rem;
+      width: auto;
+    }
+  }
+}
+
+// We dont' use the mixin because it's expensive.
+[data-fieldtype="modgrade"] fieldset {
+  br+label {
+    width: auto !important;
+  }
+
+  br {
+    display: none;
+  }
+
+  input,
+  select {
+    padding-top: .375rem;
+    padding-bottom: .375rem;
+    padding-left: 0.65rem;
+    padding-right: 30px;
+    margin: 0.25rem;
+
+    height: auto;
+    font-size: $font-size-xs;
+  }
+
+  .form-group {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+// Styles for the JS file types browser provided by the "filetypes" element.
+[data-filetypesbrowserbody] {
+
+  [aria-expanded="false"]>[role="group"],
+  [aria-expanded="false"] [data-filetypesbrowserfeature="hideifcollapsed"],
+  [aria-expanded="true"] [data-filetypesbrowserfeature="hideifexpanded"] {
+    display: none;
+  }
+}
+
+// The autocomplete popup needs a display:block container to correctly position to popup.
+.form-inline[data-fieldtype="autocomplete"],
+.form-inline[data-fieldtype="tags"] {
+  display: block;
+}
+
+// Show editor at 100% width by default.
+[data-fieldtype="editor"]>div {
+  flex-grow: 1;
+}
+
+
+//TODO: this UI part needs to be improved
+@include media-breakpoint-up(sm) {
+
+  .modal .mform fieldset.collapsible legend a.fheader,
+  .mform fieldset.collapsible legend a.fheader {
+    width: 100%;
+    display: block;
+    padding: .85rem 1.5rem; //13px 0
+    margin: 0 0 .5rem;
+
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 9.75L16.25 15.25H7.75L12 9.75Z' stroke='#{url-friendly-colour($body-color)}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E ");
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px);
+
+    border-radius: $btn-border-radius;
+
+    h3 {
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      color: $headings-color;
+
+      .theme-dark & {
+        color: $dm-headings-color;
+      }
+    }
+
+    .theme-dark & {
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 9.75L16.25 15.25H7.75L12 9.75Z' stroke='#{url-friendly-colour($dm-body-color)}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E ");
+      color: $dm-headings-color;
+    }
+
+    &[aria-expanded="true"],
+    &:hover {
+      text-decoration: none;
+      background-color: $gray-100;
+      color: $body-color-light;
+
+      h3 {
+        .theme-dark & {
+          color: $dm-body-color-light;
+        }
+      }
+
+      .theme-dark & {
+        background-color: $dm-gray-100;
+        border-color: $dm-border-color;
+        color: $dm-body-color-light;
+      }
+    }
+  }
+
+  .mform fieldset.collapsible:last-of-type legend a.fheader {
+    margin-bottom: 0;
+  }
+
+  .fheader.collapsed,
+  .mform fieldset.collapsed legend a.fheader {
+    /*rtl:raw:
+        background-image: url([[pix:t/collapsed_rtl]]);
+        */
+    /*rtl:remove*/
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.25 12L8.75 7.75V16.25L14.25 12Z' stroke='#{url-friendly-colour($body-color)}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 16px;
+    background-color: transparent;
+    border: 1px solid $border-color;
+
+    .theme-dark & {
+      border-color: $dm-border-color;
+    }
+  }
+
+
+  .mform {
+    .form-inline {
+      .fdefaultcustom {
+        label {
+          justify-content: initial;
+        }
+      }
+    }
+  }
+}
+
+.fcontainer {
+  padding: $btn-padding-y 0;
+}
+
+.collapsemenu {
+  .collapseall {
+    display: block;
+  }
+
+  .expandall {
+    display: none;
+  }
+
+  &.collapsed {
+    .collapseall {
+      display: none;
+    }
+
+    .expandall {
+      display: block;
+    }
+  }
+}
+
+// Form inset on the left/right.
+// Used to display an icon/button within the form control.
+.input-group {
+  &.form-inset {
+    .form-inset-item {
+      position: absolute;
+      padding-top: calc(#{$input-padding-y} + #{$input-border-width});
+      z-index: 3;
+    }
+
+    &.form-inset-left {
+      .form-control {
+        padding-left: $spacer * 1.5;
+      }
+    }
+
+    &.form-inset-right {
+      .form-control {
+        padding-right: $spacer * 1.5;
+      }
+
+      .form-inset-item {
+        right: 0;
+      }
+    }
+  }
+}
+
+// Theme
+.form-description,
+.form-control-static {
+  font-size: $font-size-sm;
+  line-height: 1.4;
+  color: $body-color-light;
+  word-break: break-word;
+
+  ul {
+    margin-left: 1rem;
+  }
+
+  p {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.custom-control {
+  &.material-checkbox {
+    color: $green-700;
+
+    .material-control-input {
+      display: none;
+
+      &:checked~.material-control-indicator {
+        border-color: $green-700;
+        transform: rotateZ(45deg) translate(1px, -5px);
+        width: 10px;
+        border-top: 0px solid #fff;
+        border-left: 0px solid #fff;
+      }
+    }
+
+    .material-control-indicator {
+      display: inline-block;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border: 2px solid $border-color;
+      transition: 0.3s;
+    }
+  }
+
+  &.fill-checkbox {
+    color: $green-700;
+
+    .fill-control-input {
+      display: none;
+
+      &:checked~.fill-control-indicator {
+        background-color: $green-700;
+        border-color: $green-700;
+        background-size: 80%;
+      }
+    }
+
+    .fill-control-indicator {
+      border-radius: 3px;
+      display: inline-block;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border: 2px solid $border-color;
+      transition: 0.3s;
+      background-color: transparent;
+      background-size: 0%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+    }
+  }
+
+  &.overflow-checkbox {
+    .overflow-control-input {
+      display: none;
+
+      &:checked~.overflow-control-indicator {
+        &::after {
+          transform: rotateZ(45deg) scale(1);
+          top: -6px;
+          left: 5px;
+        }
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+
+    .overflow-control-indicator {
+      border-radius: 3px;
+      display: inline-block;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border: 2px solid $border-color;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        transition: 0.3s;
+        transform: rotateZ(90deg) scale(0);
+        width: 10px;
+        border-bottom: 4px solid $border-color;
+        border-right: 4px solid $border-color;
+        border-radius: 3px;
+        top: -2px;
+        left: 2px;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        transition: 0.3s;
+        width: 10px;
+        border-right: 7px solid #fff;
+        border-radius: 3px;
+        transform: rotateZ(45deg) scale(1);
+        top: -4px;
+        left: 5px;
+        opacity: 0;
+      }
+    }
+  }
+
+  &.material-switch {
+    color: $green-700;
+    padding-left: 0;
+
+    .material-switch-control-input {
+      display: none;
+
+      &:checked~.material-switch-control-indicator {
+        &::after {
+          background-color: $white;
+          left: 17px;
+        }
+      }
+    }
+
+    .material-switch-control-indicator {
+      display: inline-block;
+      position: relative;
+      margin: 0 10px;
+      top: 4px;
+      min-width: 32px;
+      width: 32px;
+      height: 16px;
+      background: transparent;
+      border-radius: 3px;
+      transition: 0.3s;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 3px;
+        transition: 0.3s;
+        top: -1px;
+        left: -1px;
+        background: #fdfdfd;
+      }
+    }
+  }
+
+  &.ios-switch {
+    display: inline-flex;
+    align-items: center;
+
+    padding-left: 0;
+
+    color: $body-color;
+
+    .theme-dark & {
+      color: $dm-body-color;
+    }
+
+    .ios-switch-control-indicator {
+      display: inline-block;
+      position: relative;
+      margin: 0 10px 0 0;
+      top: 0;
+      min-width: 32px;
+      width: 32px;
+      height: 20px;
+      background: $input-border-color;
+      border-radius: 20px;
+      transition: 0.3s;
+      border: 2px solid $input-border-color;
+      cursor: pointer;
+
+      .theme-dark & {
+        border-color: $dm-gray-500;
+        background-color: $dm-gray-500;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 20px;
+        transition: 0.3s;
+        top: 2px;
+        left: 2px;
+        background: $white;
+      }
+    }
+  }
+
+  .ios-switch-control-input {
+    display: none;
+
+    &:active~.ios-switch-control-indicator {
+      &::after {
+        width: 20px;
+      }
+    }
+
+    &:checked {
+      ~.ios-switch-control-indicator {
+        border: 2px solid $green-400;
+        background-color: $green-400;
+
+        #nav-drawer & {
+          border: 2px solid $green-400;
+          background-color: $green-400;
+        }
+
+        #admin-closecustomalert &,
+        #admin-hideforgotpassword &,
+        #admin-hidecourseindexnav &,
+        #admin-turnoffdashboardlink &,
+        #admin-hidedetails &,
+        [id^="admin-turnoffsidebar"] & {
+          background-color: $red-400;
+          border-color: $red-400;
+        }
+
+        &::after {
+          background-color: $white;
+          top: 2px;
+          left: 14px;
+        }
+      }
+
+      &:active~.ios-switch-control-indicator {
+        &::after {
+          left: 0px;
+        }
+      }
+    }
+  }
+
+  &.border-switch {
+    color: $green-700;
+    padding-left: 0;
+
+    .border-switch-control-input {
+      display: none;
+
+      &:checked~.border-switch-control-indicator {
+        border-color: $green-700;
+
+        &::after {
+          left: 14px;
+          background-color: $green-700;
+        }
+      }
+    }
+
+    .border-switch-control-indicator {
+      display: inline-block;
+      position: relative;
+      margin: 0 10px;
+      top: 4px;
+      width: 32px;
+      height: 20px;
+      background: transparent;
+      border-radius: 3px;
+      transition: 0.3s;
+      border: 2px solid $input-border-color;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 1px;
+        transition: 0.3s;
+        top: 1px;
+        left: 2px;
+        background: $input-border-color;
+      }
+    }
+  }
+
+  &.teleport-switch {
+    color: $green-700;
+    padding-left: 0;
+
+    .teleport-switch-control-input {
+      display: none;
+
+      &:checked~.teleport-switch-control-indicator {
+        border-color: $green-700;
+
+        &::after {
+          left: -14px;
+        }
+
+        &::before {
+          right: 2px;
+          background-color: $green-700;
+        }
+      }
+    }
+
+    .teleport-switch-control-indicator {
+      display: inline-block;
+      position: relative;
+      margin: 0 10px;
+      top: 4px;
+      width: 32px;
+      height: 20px;
+      background: transparent;
+      border-radius: 3px;
+      transition: 0.3s;
+      border: 2px solid $input-border-color;
+      overflow: hidden;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 14px;
+        height: 12px;
+        border-radius: 50%;
+        transition: 0.3s;
+        top: 1px;
+        left: 2px;
+        background: $input-border-color;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 14px;
+        height: 12px;
+        border-radius: 50%;
+        transition: 0.3s;
+        top: 1px;
+        right: -14px;
+        background: $input-border-color;
+      }
+    }
+  }
+}
+
+:disabled+span,
+:disabled+span,
+:disabled+span+span {
+  opacity: 0.2;
+  cursor: not-allowed !important;
+}
+
+
+/* Theme */
+.fdescription {
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+  margin: 0.25rem 0;
+
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+
+  border: $alert-border-width solid transparent;
+  @include border-radius($alert-border-radius);
+
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+
+  ul {
+    margin: 0;
+  }
+
+  &.required {
+    background-color: $yellow-100;
+
+    .theme-dark & {
+      background-color: $dm-gray-100;
+    }
+
+    .icon {
+      display: inline-flex;
+    }
+  }
+
+  &.form-filetypes-descriptions {
+    background-color: $gray-100;
+
+    .theme-dark & {
+      background-color: $dm-gray-100;
+    }
+  }
+}
+
+.logselecform {
+
+  input,
+  select {
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+    ;
+  }
+}
+
+.ftoggler {
+  position: relative;
+
+  [data-toggle="popover"] {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+
+    top: calc(50% - 18px);
+    right: 40px;
+  }
+}
+
+/* Form additional UI */
+.password--wrapper,
+.form-password {
+
+  .password--edit,
+  .text-muted {
+    display: inline-flex;
+    align-items: center;
+
+    font-size: $font-size-sm;
+    color: $blue-600;
+
+    .icon {
+      margin-left: 0.35rem;
+    }
+
+    &:hover {
+      text-decoration: none
+    }
+
+    span {
+      padding-left: 6px;
+    }
+  }
+
+  em {
+    font-style: normal !important;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.password--wrapper {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 4px;
+  background-color: transparent;
+  border: 2px dashed $blue-300;
+  border-radius: $border-radius;
+}
+
+.password--unmask {
+  width: 40px;
+  height: 40px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-left: 0.35rem;
+  background-color: $blue-200;
+  border-radius: $border-radius;
+  color: $white;
+
+  .icon {
+    width: auto;
+    height: auto;
+  }
+
+  &:hover {
+    background-color: $blue-500;
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+.adminsettingsflags {
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 10px;
+  padding: 10px;
+
+  background-color: $red-100;
+  border-radius: $border-radius;
+
+  input {
+    margin-right: 0.35rem;
+  }
+
+  label {
+    margin: 0 1rem 0 0;
+    color: $red-700;
+    font-size: $font-size-xs;
+  }
+}
+
+// UI for all fieldset elements
+// ---- URL: /grade/edit/tree/calculation.php?courseid=7&id=20
+// ---- URL: /user/index.php?id=8
+.fieldset-styled,
+[data-fieldtype="modgrade"] fieldset,
+.wiki-upload-section,
+#page-grade-grading-form-guide-edit fieldset.hidden,
+#id_changepassword,
+#page-mod-feedback-show_nonrespondents fieldset {
+  padding: $card-spacer-x;
+  margin-bottom: $card-spacer-x;
+
+  font-size: $font-size-sm !important;
+
+  border-radius: $border-radius;
+  border: 2px solid $primary-color-300;
+
+  .theme-dark & {
+    border-color: $dm-gray-100;
+  }
+
+  .fcontainer {
+    padding: 0;
+  }
+
+  legend {
+    width: auto;
+    padding: 5px 20px;
+    border-radius: $border-radius;
+    background-color: var(--main-theme-color);
+    color: $white;
+
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+
+    .theme-dark & {
+      background-color: $dm-gray-100;
+      color: $dm-body-color;
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  ul {
+    margin: 0;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+
+    li {
+      padding: 0.5rem 0;
+      list-style: none;
+
+      li {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+      }
+
+      input {
+        margin-top: 0.25rem;
+        width: auto;
+      }
+    }
+  }
+
+  .alert {
+    width: 100%;
+  }
+
+}
+
+.wiki-upload-section {
+  width: auto;
+}
+
+
+//TODO: Calendar fields
+/*#id_filterstartdate_calendar,
+      #id_filterenddate_calendar,
+      #id_datefrom_calendar,
+      #id_datetill_calendar,
+      #id_locktime_calendar,
+      #id_completionexpected_calendar,
+      a[id*="id_bydate_"]*/
+a[id*="_calendar"] {
+  margin: 0 5px;
+  padding: 5px;
+  background-color: $gray-100;
+  border-radius: $border-radius;
+  line-height: 1;
+
+  &:hover {
+    color: var(--main-theme-color);
+    background-color: $primary-color-100;
+  }
+
+  .theme-dark & {
+    filter: invert(1);
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+  }
+}
+
+
+// Full size files container
+.form-filemanager {
+  width: inherit;
+}
+
+// Search
+.search-input-group {
+  display: flex;
+  position: relative;
+  z-index: 1;
+
+  color: $body-color-secondary;
+
+  .rui-icon-menu & {
+    width: 200px !important;
+
+
+    @include media-breakpoint-between(xs, md) {
+      width: 255px !important;
+      position: absolute;
+      z-index: 3;
+      left: -40px;
+    }
+  }
+
+  .theme-dark & {
+    color: $dm-body-color-secondary;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: .75rem 1.25rem .75rem 45px;
+    margin: 0;
+    height: 47px;
+
+    font-size: $btn-font-size;
+    font-weight: $font-weight-medium;
+    border-radius: $btn-border-radius;
+    background-color: $gray-100;
+    border: none;
+
+    #nav-drawer & {
+      padding: 7px 40px;
+      margin-bottom: 4px;
+      height: auto;
+
+      background-color: $drawer-bg;
+      color: $drawer-text;
+      font-size: $font-size-xs;
+    }
+
+    .theme-dark #nav-drawer & {
+      background-color: $dm-drawer-bg;
+      color: $dm-drawer-text;
+    }
+
+    .theme-dark & {
+      background-color: $dm-gray-100;
+      color: $dm-gray-800;
+    }
+  }
+
+  .search-input-icon {
+    display: flex;
+    position: absolute;
+    left: 15px;
+    top: calc(50% - 11px);
+
+    #nav-drawer & {
+      top: calc(50% - 10px);
+      left: 12px;
+      color: $drawer-nav-btn-icon;
+      opacity: $drawer-icon-opacity;
+
+      .theme-dark & {
+        color: $dm-body-color;
+      }
+    }
+  }
+
+
+  .search-input-btn {
+    position: absolute;
+    top: calc(50% - 15px);
+    right: 10px;
+
+    height: 30px;
+    width: 30px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: transparent;
+    border-radius: $border-radius-xl;
+    border: none;
+    color: $body-color-secondary;
+
+    transition: $transition-base;
+
+    .theme-dark & {
+      color: $dm-body-color-secondary;
+    }
+
+    #nav-drawer & {
+      color: $white;
+    }
+
+    .dir-rtl & {
+      transform: rotate(180deg);
+    }
+
+    &:hover {
+      background-color: var(--main-theme-color);
+      color: $primary-color-100;
+    }
+  }
+
+}
+
+.rui-show-password-btn {
+  position: absolute;
+  top: calc(50% - 15px);
+  right: 5px;
+
+  background-color: $primary-color-100;
+  color: var(--main-theme-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+
+  .theme-dark & {
+    background-color: var(--main-theme-color);
+    color: $primary-color-300;
+  }
+
+  &:hover {
+    background-color: $primary-color-100;
+    color: var(--main-theme-color);
+  }
+
+  &.rui-show-password-btn--hidden {
+    background-color: $gray-100;
+    color: $gray-600;
+
+    .theme-dark & {
+      background-color: $dm-gray-100;
+      color: $dm-gray-800;
+    }
+  }
+
+  cursor: pointer;
+}

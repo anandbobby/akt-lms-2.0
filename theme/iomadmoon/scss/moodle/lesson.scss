@@ -1,0 +1,32 @@
+//---- Lesson
+//---- Module Activity
+
+.addlinks {
+    margin-top: 2rem;
+    border-top: 1px solid $border-color;
+    text-align: center;
+
+    &:nth-of-type(1) {
+        margin-top: 0;
+        border-top: none;
+    }
+}
+
+.branchbuttoncontainer {
+    .singlebutton {
+        margin: .25rem 0;
+    }
+}
+
+.text_to_html + .singlebutton {
+    margin-top: 10px;
+}
+
+@include media-breakpoint-between(xs,sm) {
+    .branchbuttoncontainer {
+        .singlebutton, 
+        .btn {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.media {
+  display: flex;
+  align-items: flex-start;
+}
+
+.media-body {
+  flex: 1;
+}
+
+.media-details {
+  font-size: $font-size-xs;
+  color: $body-color-secondary;
+
+  .theme-dark & {color: $dm-body-color-secondary;}
+
+  a {
+    font-weight: $font-weight-medium;
+    color: $body-color-secondary;
+
+    .theme-dark & {color: $dm-body-color-secondary;}
+  }
+}

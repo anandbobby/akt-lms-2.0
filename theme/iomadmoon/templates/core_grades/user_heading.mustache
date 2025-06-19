@@ -1,0 +1,73 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core_grades/user_heading
+
+    Custom user heading.
+
+    Context variables required for this template:
+    * image - HTML img element representing the avatar of the user.
+    * userprofileurl - The URL to the user profile page.
+    * name - The name of the user
+    * buttons - List of buttons to be displayed in the heading for the user report (e.g. 'message', 'add user to contacts')
+
+    Example context (json):
+    {
+        "image": "<img src=\"http://example.com/pluginfile.php/14/user/icon/boost/f2\" class=\"userpicture\" width=\"50\" alt=\"\">",
+        "userprofileurl": "http://example.com/user/view.php?id=6&course=8",
+        "name": "John Doe",
+        "buttons": [
+            {
+                "linkattributes": [
+                    {
+                        "name": "role",
+                        "value": "button"
+                    },
+                    {
+                        "name": "data-userid",
+                        "value": "3"
+                    }
+                ],
+                "title": "Message",
+                "url": "http://example.com/message/index.php?user1=2&user2=3&addcontact=3",
+                "icon": {
+                    "name": "t/message",
+                    "component": "core"
+                }
+            }
+        ]
+    }
+}}
+<div class="user-heading d-flex align-items-center">
+    <div class="d-flex">
+        {{{image}}}
+    </div>
+    <div class="d-flex ml-2">
+        <a class="h4 m-0" href="{{userprofileurl}}">{{name}}</a>
+    </div>
+    <div class="d-inline-flex ml-4">
+        {{#buttons}}
+            <a {{#linkattributes}} {{name}}="{{value}}" {{/linkattributes}} aria-label="{{title}}" href="{{url}}">
+                {{#icon}}
+                    <span class="px-3">
+                        <svg width="20" height="20" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M7 12h10M7 8h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 20.29V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H7.961a2 2 0 00-1.561.75l-2.331 2.914A.6.6 0 013 20.29z" stroke="currentColor" stroke-width="1.5"></path></svg>
+                    </span>
+                {{/icon}}
+            </a>
+        {{/buttons}}
+    </div>
+</div>

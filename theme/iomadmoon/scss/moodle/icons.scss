@@ -1,0 +1,209 @@
+// The only class we need for icons is .icon
+// Standardize the size, padding and alignment for all icons in Moodle.
+
+// Size of default icons.
+$icon-width: 20px;
+$icon-height: 20px;
+// Size of big icons.
+$icon-big-width: 60px;
+$icon-big-height: 60px;
+
+// stylelint-disable
+$iconsizes: () !default;
+$iconsizes: map-merge((
+  0: 0,
+  1: ($icon-width * .25),
+  2: ($icon-width * .5),
+  3: $icon-width,
+  4: ($icon-width * 1.5),
+  5: ($icon-width * 2),
+  6: ($icon-width * 2.5),
+  7: ($icon-width * 3)
+), $iconsizes);
+// stylelint-enable
+
+.icon {
+    width: $icon-width;
+    height: $icon-height;
+    // vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+
+    .sup & {
+        width: 16px;
+        height: 16px;
+    }
+
+    &.itemicon {
+        margin-right: 0.25rem;
+    }
+
+    &.spacer {
+        display: none;
+    }
+
+    &.iconsize-big {
+        width: $icon-big-width;
+        height: $icon-big-height;
+        font-size: $icon-big-height;
+    }
+}
+
+        // Mainly for icons in page title
+        .iconlarge {
+            font-size: 40px;
+            width: 40px;
+            height: 40px;
+        }
+
+        h2 .icon.iconlarge {
+            margin-right: .5rem;
+        }
+
+.action-menu-item a:first-of-type > .icon {
+    margin-left: 0.5rem;
+}
+
+.action-menu-item a:hover {
+    text-decoration: none;
+}
+
+// YUI 2 Tree View icons must not have a margin left.
+.ygtvcell .icon {
+    margin-left: 0 !important; /* stylelint-disable-line declaration-no-important */
+
+    .theme-dark & {
+        filter: invert(1);
+    }
+}
+
+// In the navigation, tree icons should not have margins.
+.block_navigation,
+.block_settings {
+    .tree_item .icon {
+        margin-left: 0;
+    }
+}
+
+[data-action=toggle-drawer] .icon {
+    margin: 0;
+}
+
+// Apply in special cases where the default icons styles does not work properly. Eg file picker buttons.
+.icon-no-spacing a > .icon {
+    margin: 0;
+}
+
+.icon-no-margin {
+    .icon {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+.icon-large > .icon {
+    width: ($icon-width * 2);
+    height: ($icon-height * 2);
+}
+
+@each $size, $length in $iconsizes {
+    .icon-size-#{$size} {
+        .icon {
+            height: $length !important; /* stylelint-disable-line declaration-no-important */
+            width: $length !important; /* stylelint-disable-line declaration-no-important */
+            font-size: $length !important; /* stylelint-disable-line declaration-no-important */
+        }
+    }
+}
+
+.helplink .icon {
+    margin-right: 0.5rem;
+}
+
+.action-icon + a {
+    margin-left: 0.5rem;
+}
+
+.icon-req {
+    padding: 4px;
+    position: relative;
+    top: 0;
+
+    width: auto;
+    height: auto;
+    background: $red-100;
+    border-radius: $border-radius;
+
+    font-size: 8px;
+    color: $red-600!important;
+
+    .fdescription & {
+        background-color: transparent;
+        color: $yellow-700;
+    }
+}
+
+.icon-info {
+    padding: 7px;
+}
+
+.rui-icon-container {
+    display: initial;
+}
+
+// Moodle 4.x.
+.icons-collapse-expand {
+    display: flex;
+    align-items: center;
+
+    img {
+        .theme-dark & {
+            filter: invert(1);
+        }
+    }
+
+    .expanded-icon {
+        display: flex;
+        align-items: center;
+        padding: 0!important;
+    }
+
+    .collapsed-icon {
+        display: none;
+    }
+
+    &.collapsed {
+        .expanded-icon {
+            display: none;
+        }
+
+        .collapsed-icon {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.rui-adv-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $gray-100;
+    color: $gray-600;
+
+    font-size: 10px;
+    font-weight: $font-weight-bold;
+
+    width: 16px;
+    height: 16px;
+    border-radius: 12px;
+
+    .theme-dark & {
+        background-color: $dm-gray-100;
+        color: $dm-gray-600;
+    }
+}

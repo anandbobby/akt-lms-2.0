@@ -1,0 +1,6 @@
+@media print {
+    // Safari fix see: http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/#printing.
+    .container {
+        width: auto;
+    }
+}
